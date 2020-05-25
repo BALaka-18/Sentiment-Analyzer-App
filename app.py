@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup as bs
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import re # for regex
-# NLTK
+'''# NLTK
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from nltk.stem import SnowballStemmer
+from nltk.stem import SnowballStemmer'''
 # BOW
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
@@ -139,13 +139,7 @@ def review(type):
     labels = []
 
     for r in revs:
-        rv_txt = r['review']
-        f1 = clean(rv_txt)
-        f2 = is_special(f1)
-        f3 = to_lower(f2)
-        f4 = rem_stopwords(f3)
-        f5 = stem_txt(f4)
-
+        f5 = r['review']
         inp = []
         for i in word_list:
             inp.append(f5.count(i[0]))
