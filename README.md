@@ -27,6 +27,8 @@ Screenshots of the web app :
 
 ![image](https://user-images.githubusercontent.com/49288068/83076941-17048e80-a094-11ea-97ae-d52d49fbd46b.png)
 
+![image](https://user-images.githubusercontent.com/49288068/83078048-47e5c300-a096-11ea-92b4-2e846e78862e.png)
+
 ![image](https://user-images.githubusercontent.com/49288068/83077012-3ac7d480-a094-11ea-80d8-c6ebd741b49b.png)
 
 ![image](https://user-images.githubusercontent.com/49288068/83077026-43200f80-a094-11ea-8836-3ce507a6c028.png)
