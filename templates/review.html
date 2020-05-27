@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Movie Review Sentiment Analyzer-Reviews</title>
+</head>
+<body style="background-color: black;">
+    <!--display: flex;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;"-->
+    <nav class="navbar">        <!--Creating a navbar-->
+        <h1 class="navbar-brand text-light"><strong>MOVIE REVIEW SENTIMENT ANALYZER</strong></h1>
+    </nav>
+    <br>
+    <div class="icons" style="align-items:center; justify-content:center; text-align:center">
+        <i class="fas fa-theater-masks" style="color: cornsilk; font-size: 90px;"></i>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="offset-2 col-md-8 mt-2">
+                <h1 class="text-light" style="text-align: center; margin-top: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><strong>IMDb MOVIE REVIEW SENTIMENT ANALYZER</strong></h1>
+                <br>
+                <div class="Title" style="align-items: center;
+                justify-content: center;
+                text-align: center;">
+                    <form action="{{url_for('choices')}}", method="POST">
+                        <input type="text" name="movie" class="form-control" placeholder="Enter Movie Name"/>
+                        <br>
+                        <button class="btn btn-success"><strong>SUBMIT</strong></button>
+                        <a href="{{url_for('home')}}", class="btn btn-danger"><strong>RESET</strong></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div style="align-items: center;
+    justify-content: center;
+    text-align: center;">
+        <img src={{image}}>
+        <h1 class="text-light">{{title}}</h1>
+        <p class="text-light">{{duration}}  ||  {{genres}}  ||  {{date}}</p>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <i class="fa fa-star" style="size: 5x; color: yellow;"></i>
+                    <p class="text-light"><strong>IMDb Rating : {{ratings}} / 10</strong></p>
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-film" style="size: 9x; color: tomato;"></i>
+                    <p class="text-light"><strong>Sentiment score : {{sent_score}}</strong></p>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="review" style="align-items: center;
+        justify-content: center;
+        text-align: center; margin: 20px 20px 20px 20px; border: 10px solid lightgray; ">
+            <div class="heading text-light" style="margin: 30px; font-size: 50px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center; border: 5px solid red;"><strong>
+                USER REVIEWS
+            </strong>
+            </div>
+            {% for i in range(revs|length) %}
+            <div class="rev-container" style="margin: 30px;">
+                <div class="rev-text">
+                    <div class="ratings-icon-text" style="align-items: right;">
+                        <span class="fa fa-star icon" style="color: lightgreen;">
+                        </span>
+                        <span class="text-light"> {{revs[i]['ratings']}}</span>
+                        <span class="total text-light"> / 10</span>
+                    </div>
+                    <div class="user-title" style="align-items: center;">
+                        <span class="text-light"><strong>{{revs[i]['title']}}</strong></span>
+                    </div>
+                    <div class="user-name" style="align-items: center; color: lightgreen;">
+                        <span><strong>By : {{revs[i]['user']}}</strong></span>
+                    </div>
+                    <div class="rev-content" style="align-items: center;">
+                        {% if labels[i] == 1 %}
+                            <p class="text-success">
+                                {{revs[i]['review']}}
+                            </p>
+                        {% else %}
+                            <p class="text-danger">
+                                {{revs[i]['review']}}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</body>
+</html>
