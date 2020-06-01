@@ -35,4 +35,5 @@ Screenshots of the web app :
 
 ![image](https://user-images.githubusercontent.com/49288068/83077057-50d59500-a094-11ea-90a0-e8ea0822afad.png)
 
+Link to the web app : https://review-sentiment-analyzer.herokuapp.com/
 _______________________________________________________________________________________________________________________________________
