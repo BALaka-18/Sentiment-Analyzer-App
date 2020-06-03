@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup as bs
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import re # for regex
-'''# NLTK
+# NLTK
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from nltk.stem import SnowballStemmer'''
+from nltk.stem import SnowballStemmer
 # BOW
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
@@ -31,12 +31,18 @@ def scraped(url):
         for i in range(len(table)):
             idx.append(str(table[i].find_all('a')[1]['href']).split('/')[-2])
             title.append(table[i].find_all('a')[1].text.strip())
-            year.append(re.findall(pattern,table[i].find_all('td')[1].text)[0])
+            try:
+                year.append(re.findall(pattern,table[i].find_all('td')[1].text)[0])
+            except:
+                year.append("No information available")
     else:
         for i in range(len(table[:11])):
             idx.append(str(table[i].find_all('a')[1]['href']).split('/')[-2])
             title.append(table[i].find_all('a')[1].text.strip())
-            year.append(re.findall(pattern,table[i].find_all('td')[1].text)[0])
+            try:
+                year.append(re.findall(pattern,table[i].find_all('td')[1].text)[0])
+            except:
+                year.append("No information available")
     return idx,title,year
 
 def scraped_revs(url1,url2):
