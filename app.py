@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup as bs
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import re # for regex
-# NLTK
+'''# NLTK
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from nltk.stem import SnowballStemmer
+from nltk.stem import SnowballStemmer'''
 # BOW
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
@@ -94,7 +94,7 @@ def scraped_revs(url1,url2):
         revs.append("No Reviewers yet")
     return title,ratings,duration,gen,date,image,revs
 
-# TEXT PREPROCESSING FUNCTIONS
+'''# TEXT PREPROCESSING FUNCTIONS
 def clean(text):
     cleaned = re.compile(r'<.*?>')
     return re.sub(cleaned,'',text)
@@ -118,7 +118,7 @@ def rem_stopwords(text):
 
 def stem_txt(text):
     ss = SnowballStemmer('english')
-    return " ".join([ss.stem(w) for w in text])
+    return " ".join([ss.stem(w) for w in text])'''
 
 app = Flask(__name__)
 
